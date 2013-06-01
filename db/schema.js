@@ -1,5 +1,5 @@
 var mongo = require('mongoose');
-mongo.connect('mongodb://inami:swinburne@alex.mongohq.com:10017/app16037076');
+//mongo.connect('mongodb://inami:swinburne@alex.mongohq.com:10017/app16037076');
 
 
 // the Entitiy - are they are charity or company

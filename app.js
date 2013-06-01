@@ -5,13 +5,18 @@ var app = express();
 app.use(express.bodyParser());
 app.use(express.compress());
 app.set('json spaces', 0);
+
+app.get('/', function(req, res) {
+	res.send("hello world");
+});
+
 app.get('/app/*', function (req, res) {
   	res.sendfile(__dirname + "/gui/" + req.path);
 });
 
 
 app.post('/api/updateCollector', function (req, res) {
-	db.Article.update({ _id : req.body.id  }, { isRead : true }).exec();
+	db.Collector.update({ _id : req.body.id  }, data ).exec();
 	res.send(200);
 });
 
@@ -32,5 +37,5 @@ app.get('/api/getEntity', function(req, res) {
 	});
 });
 
-app.listen(5000);
-console.log("listening on port 5000");
+app.listen(8001);
+console.log("listening on port 8000");
