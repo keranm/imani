@@ -37,3 +37,7 @@ var collectorMdl = {
 			when : { type: Date, default: Date.now }
 	},
 }
+
+
+exports.Entity = mongo.model('Entity', new mongo.Schema(entityMdl));
+exports.Collector = mongo.model('Collector', new mongo.Schema(collectorMdl));
