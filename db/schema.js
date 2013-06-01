@@ -1,5 +1,6 @@
 var mongo = require('mongoose');
-mongo.connect('mongodb://localhost/imani');
+//mongo.connect('mongodb://inami:swinburne@alex.mongohq.com:10017/app16037076');
+
 
 // the Entitiy - are they are charity or company
 var entityMdl = {
@@ -14,9 +15,9 @@ var entityMdl = {
 				country : String
 			},
 	phone : {
-			countryCode :  String },
-			areaCode :  Number },
-			number :  Number }
+			countryCode :  String,
+			areaCode :  Number,
+			number :  Number 
 	},
 	dateAdded :  { type: Date, default: Date.now },
 	isActive : Boolean,
@@ -37,3 +38,7 @@ var collectorMdl = {
 			when : { type: Date, default: Date.now }
 	},
 }
+
+
+exports.Entity = mongo.model('Entity', new mongo.Schema(entityMdl));
+exports.Collector = mongo.model('Collector', new mongo.Schema(collectorMdl));
