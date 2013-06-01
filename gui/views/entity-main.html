@@ -1,0 +1,16 @@
+<div><h1>{{title}}</h1>
+Name: <input type="text" data-ng-model="entity.name" /><br/>
+ABN: <input type="text" data-ng-model="entity.abn" /><br/>
+Address Number: <input type="text" data-ng-model="entity.address.number" /><br/>
+Address Street: <input type="text" data-ng-model="entity.address.street" /><br/>
+Address Suburb: <input type="text" data-ng-model="entity.address.suburb" /><br/>
+City: <input type="text" data-ng-model="entity.address.city" /><br/>
+Postcode: <input type="text" data-ng-model="entity.address.postcode" /><br/>
+Country: <input type="text" data-ng-model="entity.address.country" /><br/>
+Phone Country Code: <input type="text" data-ng-model="entity.phone.countryCode" /><br/>
+Phone Area Code: <input type="text" data-ng-model="entity.phone.areaCode" /><br/>
+Phone Number: <input type="text" data-ng-model="entity.phone.number" /><br/>
+Entity Type: <select data-ng-model="entity.entityType" 
+                     data-ng-options="e.name for e in entityTypes"></select><br/>
+<button data-ng-click="register($event)">{{saveBtnText}}</button>
+</div>

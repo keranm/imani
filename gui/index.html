@@ -1,11 +1,28 @@
-<script src="/socket.io/socket.io.js"></script>
-<script src="lib/angular/angular.js"></script>
-<script src="js/controllers.js"></script>
-<body ng-app ng-controller="MsgCtrl">
-	<input type="text" ng-pattern="/\w+:\w+/" ng-model="inputTxt" required><input type="button" ng-click="sendText(inputTxt)" value="send" />
-	<div id="texts">
-		<span ng-repeat="msg in msgs | orderBy:'ts'">
-		{{msg.txt}}<br/>
-		</span>
-	</div>
-</body>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html data-ng-app="imani">
+    <head>
+        <script src="lib/angular/angular.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
+        <link href="css/bootstrap.css" rel="stylesheet">
+    </head>
+    <body data-ng-controller="imani.controller">
+        <div class="page-header">
+            <img class="pull-left" src="{{person.logoUrl}}" />
+            <h1>{{person.companyName}}</h1>
+        </div>
+        <div class="row-fluid">
+            <img src="{{person.photo}}">
+            <p>Name: <em>{{person.name}}</em><br/>
+            Gender: <em>{{person.gender}}</em><br/>
+            Licence: <em>{{person.licence}}</em><br/>
+            <div data-ng-repeat="company in person.collectsFor">
+                <img src="company.company_logo">{{company.company_name}}
+            </div>
+        </div>
+    </body>
+</html>

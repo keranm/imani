@@ -1,15 +1,16 @@
 'use strict';
 /* Controllers */
-function MsgCtrl($scope) {
-  var socket = io.connect("http://192.168.0.229");
-  $scope.msgs = [];
-  
-  socket.on("get text", function(data) {
-	$scope.msgs = data;
-        $scope.$digest();
-  });
-  
-  $scope.sendText = function sendText(txt) {
-    socket.emit("puttext", txt);
-  }
-}
+angular.module('imani.controllers', [])
+    .controller("imani.controller", function($scope, $http, $location) {
+        var url = location.search.substring(1);
+        if (url !== null) {
+            $http.get("/" + url)
+                .success(function(data) {
+                    $scope.person = data;
+                })
+                .error(function(data) {
+                    console.log(data);
+                });
+        }
+        
+    });
