@@ -14,9 +14,9 @@ var entityMdl = {
 				country : String
 			},
 	phone : {
-			countryCode :  String },
-			areaCode :  Number },
-			number :  Number }
+			countryCode :  String ,
+			areaCode :  Number ,
+			number :  Number 
 	},
 	dateAdded :  { type: Date, default: Date.now },
 	isActive : Boolean,
