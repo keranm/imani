@@ -12,7 +12,7 @@ and open the template in the editor.
     </head>
     <body data-ng-controller="imani.controller">
         <div class="page-header">
-            <img class="pull-left" src="{{person.logoUrl}}" />
+            <img class="pull-left" src="{{person.collectsFor[0].company_logo}}" />
             <h1>{{person.companyName}}</h1>
         </div>
         <div class="row-fluid">
@@ -21,7 +21,7 @@ and open the template in the editor.
             Gender: <em>{{person.gender}}</em><br/>
             Licence: <em>{{person.licence}}</em><br/>
             <div data-ng-repeat="company in person.collectsFor">
-                <img src="company.company_logo">{{company.company_name}}
+                <img src="{{company.company_logo}}">{{company.company_name}}
             </div>
         </div>
     </body>
