@@ -1,41 +1,39 @@
 var mongo = require('mongoose');
-mongo.connect('mongodb://localhost/test');
+mongo.connect('mongodb://localhost/imani');
 
-var metaMdl = { 
-	link : { type: String, index: { unique : true, dropDups: true } },
-	title : String,
-	description : String,
-	xmlurl : String,
-	date : Date,
-	pubdate : Date,
-	author : String,
-	language : String,
-	image : { url : String, title : String },
-	favicon : String,
-	copyright : String,
-	generator : String,
-	categories : [String]
+// the Entitiy - are they are charity or company
+var entityMdl = {
+	name : { type: String, index: { unique : true, dropDups: true } },
+	abn : { type: String, index: { unique : false, dropDups: true } },
+	address : { 
+				number : String, 
+				street : String, 
+				suburb : String, 
+				city : String, 
+				postcode : String,
+				country : String
+			},
+	phone : {
+			countryCode :  String },
+			areaCode :  Number },
+			number :  Number }
+	},
+	dateAdded :  { type: Date, default: Date.now },
+	isActive : Boolean,
+	entityType : String
 }
 
-var ArticleSchema = new mongo.Schema({
-	_ts : Number,
-	link : { type: String, index: { unique : true, dropDups: true } },
-	title : { type: String, index: { unique : true, dropDups: true } },
-	description : String,
-	summary : String,
-	origlink : String,
-	date : Date,
-	pubdate : Date,
-	author : String,
-	guid : String,
-	comments : String,
-	image : { url : String, title : String },
-	categories : [String],
-	source : { url : String, title : String },
-	enclosures : { url : String, type : String, length : String },
-	isRead : { type: Boolean, default: false },
-	metaLink : String
-});
-
-exports.Article = mongo.model('Article', ArticleSchema);
-exports.Meta = mongo.model('Meta', new mongo.Schema(metaMdl));
+// the Collector (person) model
+var collectorMdl = {
+	name : { type: String, index: { unique : false, dropDups: false } },
+	gender : String,
+	photo : { url : String, title : String },
+	driversLicence : String,
+	dateAdded :  { type: Date, default: Date.now },
+	isActive : Boolean,
+	location : {
+			lat: String,
+			lng: String,
+			when : { type: Date, default: Date.now }
+	},
+}
