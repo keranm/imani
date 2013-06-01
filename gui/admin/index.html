@@ -1,0 +1,16 @@
+
+<html>
+    <head>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="lib/angular/angular.js"></script>
+        <script src="/js/admin/controllers.js"></script>
+    </head>
+    <body ng-app="a" ng-controller="MsgCtrl">
+        <input type="text" ng-pattern="/\w+:\w+/" ng-model="inputTxt" required><input type="button" ng-click="sendText(inputTxt)" value="send" />
+        <div id="texts">
+            <span ng-repeat="msg in msgs | orderBy:'ts'">
+                {{msg.txt}}<br/>
+            </span>
+        </div>
+    </body>
+</html>
